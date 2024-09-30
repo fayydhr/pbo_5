@@ -11,13 +11,11 @@ public class MusicOrganizer {
         trackReader = new TrackReader();
     }
 
-    // Menambahkan track dari folder ke daftar
     public void addTrack(String folderPath) {
         tracks.addAll(trackReader.readTracks(folderPath));
         System.out.println("Music library loaded. " + tracks.size() + " tracks.");
     }
 
-    // Menampilkan semua track dengan urutan
     public void listAllTracks() {
         if (tracks.isEmpty()) {
             System.out.println("No tracks available.");
@@ -29,7 +27,6 @@ public class MusicOrganizer {
         }
     }
 
-    // Memutar track berdasarkan index
     public void playTrack(int index) {
         if (index >= 0 && index < tracks.size()) {
             Track track = tracks.get(index);
@@ -41,7 +38,6 @@ public class MusicOrganizer {
         }
     }
 
-    // Menghentikan track yang sedang diputar
     public void stopPlaying() {
         System.out.println("Stopping the current track.");
         player.stop();
@@ -50,22 +46,16 @@ public class MusicOrganizer {
     public static void main(String[] args) {
         MusicOrganizer organizer = new MusicOrganizer();
 
-        // Menambahkan track dari folder
         organizer.addTrack("D:/Music/");
 
-        // Menampilkan semua track
         organizer.listAllTracks();
 
-        // Memutar track pertama
         organizer.playTrack(0);
 
-        // Memutar track kedua
         organizer.playTrack(1);
 
-        // Menghentikan track
         organizer.stopPlaying();
 
-        // Memutar track ketiga
         organizer.playTrack(2);
     }
 }
